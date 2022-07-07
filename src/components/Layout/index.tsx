@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { Outlet } from 'react-router-dom';
 import { className } from '../../helpers/classNames';
 import styles from './Layout.module.scss';
 import Sidebar from './Sidebar';
@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 /**
  * The main layout component
  */
-export default function Layout(props: PropsWithChildren<{}>): JSX.Element {
+export default function Layout(): JSX.Element {
 	return (
 		<div className={styles.app}>
 			<Sidebar />
@@ -15,7 +15,9 @@ export default function Layout(props: PropsWithChildren<{}>): JSX.Element {
 					<span>{'<html>'}</span>
 					<span>{'<body>'}</span>
 				</div>
-				<section className={styles.content}>{props.children}</section>
+				<section className={styles.content}>
+					<Outlet />
+				</section>
 
 				<div {...className(styles.tags, styles.bottomTags)}>
 					<span>{'</body>'}</span>

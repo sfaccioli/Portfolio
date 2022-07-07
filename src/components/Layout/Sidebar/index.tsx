@@ -4,6 +4,7 @@ import LogoSubtitle from '../../../assets/images/logo_sub.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 /**
  * Sidebar layout component
@@ -18,38 +19,17 @@ export default function Sidebar(): JSX.Element {
 				</a>
 
 				<nav>
-					<a>HOLAaaaaaaaaaaaaaaaaaaaaa</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					<a>HOLA</a>
-					{/* <Link href='/'>
-					className={router.asPath === '/' && styles.active}
-					<FontAwesomeIcon icon={faHome} color='#4d4d4e' />
-				</Link>
-				<Link
-					href='/about'
-					className={
-						router.asPath === '/about'
-							? `${styles.active} ${styles.aboutLink}`
-							: `${styles.aboutLink}`
-					}>
-					<FontAwesomeIcon icon={faUser} color='#4d4d4e' />
-				</Link>
-				<Link
-					href='/contact'
-					className={
-						router.asPath === '/contact'
-							? `${styles.active} ${styles.contactLink}`
-							: `${styles.contactLink}`
-					}>
-					<FontAwesomeIcon icon={faEnvelope} color='#4d4d4e' />
-				</Link> */}
+					<NavLink className={({ isActive }) => (isActive ? styles.active : '')} to="/">
+						<FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+					</NavLink>
+					<NavLink className={({ isActive }) => (isActive ? `${styles.active} ${styles.aboutLink}` : `${styles.aboutLink}`)} to="/about">
+						<FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+					</NavLink>
+					<NavLink
+						className={({ isActive }) => (isActive ? `${styles.active} ${styles.contactLink}` : `${styles.contactLink}`)}
+						to="/contact">
+						<FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+					</NavLink>
 				</nav>
 
 				<ul>
